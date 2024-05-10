@@ -32,25 +32,26 @@ export default function App() {
     }
   }
 
-  function handleInput(buttonPressed){
-    console.log(buttonPressed) // Mostra no Console a tecla pressionada
-    if(buttonPressed === '+' | buttonPressed === "-" | buttonPressed === "x" | buttonPressed === "/" ){
+  function handleInput(buttonPressed) {
+    if (buttonPressed === '+' || buttonPressed === "-" || buttonPressed === "x" || buttonPressed === "/") {
       setCurrentNumber(currentNumber + " " + buttonPressed + " ")
       return
     }
-    switch(buttonPressed){
+    switch (buttonPressed) {
       case 'DEL':
         setCurrentNumber(currentNumber.substring(0, (currentNumber.length - 2)))
         return
-      case 'LIMPAR': // Limpa todo o conteúdo
-        setLastNumber("") 
-        setCurrentNumber("") 
+      case 'LIMPAR':
+        setLastNumber("")
+        setCurrentNumber("")
         return
       case '=':
         setLastNumber(currentNumber + " = ")
         calculator()
         return
       case '+/-':
+        // Implemente a lógica para mudar o sinal do número
+        setCurrentNumber((parseFloat(currentNumber) * -1).toString())
         return
     }
 
